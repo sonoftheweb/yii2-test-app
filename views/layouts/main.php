@@ -10,10 +10,12 @@ use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
-use app\assets\BowerAsset;
+use app\assets\LeafletAsset;
+use app\assets\FontAwesomeAsset;
 
 AppAsset::register($this);
-BowerAsset::register($this);
+LeafletAsset::register($this);
+FontAwesomeAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -30,6 +32,16 @@ BowerAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
+
+	<div class="alert-area align-items-center">
+		<div class="alert alert-dismissible fade show" role="alert">
+			<span class="message"></span>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</div>
+
     <?php
     NavBar::begin([
         'brandLabel' => Yii::$app->name,

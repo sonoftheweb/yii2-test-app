@@ -15,21 +15,22 @@ class m200427_195020_create_status_table extends Migration
         $this->createTable('{{%status}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string(),
+            'tag' => $this->string(),
             'color_code' => $this->string()
         ]);
 
         $statuses = [
-            ['Pending', 'light'],
-            ['Assigned', 'primary'],
-            ['On Route', 'warning'],
-            ['Done', 'success'],
-            ['Cancelled', 'danger']
+            ['Pending', 'pending', 'light'],
+            ['Assigned', 'assigned', 'primary'],
+            ['On Route', 'on_route', 'warning'],
+            ['Done', 'done', 'success'],
+            ['Cancelled', 'cancelled', 'danger']
         ];
 
         Yii::$app
             ->db
             ->createCommand()
-            ->batchInsert('status', ['name', 'color_code'], $statuses)
+            ->batchInsert('status', ['name', 'tag', 'color_code'], $statuses)
             ->execute();
     }
 

@@ -23,7 +23,9 @@ class m200428_151348_create_orders_table extends Migration
             'city' => $this->string(50)->notNull(),
             'state_province' => $this->string(50)->notNull(),
             'postal_zip_code' => $this->string(7)->notNull(),
-            'country_id' => $this->integer()->notNull()
+            'country_id' => $this->integer()->notNull(),
+            'longitude' => $this->string()->notNull(),
+            'latitude' => $this->string()->notNull()
         ]);
     }
 

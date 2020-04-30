@@ -143,3 +143,29 @@ a.desc:after {
 .action-btn {
     width: 70%;
 }
+
+#map {
+    height:100vh;
+}
+
+.alert-area {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 0 400px;
+}
+
+.alert-area > .alert {
+    display: none;
+}
+
+#orders-table {
+    margin-top: 0px !important;
+}
+
+#orders-table_wrapper .row:first-child, #orders-table_wrapper .row:last-child {
+    display: none !important;
+    height: 0px !important;
+}

@@ -29,13 +29,23 @@ class Order extends \yii\db\ActiveRecord
         return 'orders';
     }
 
+    public function fields()
+    {
+        return parent::fields();
+    }
+
+    public function extraFields()
+    {
+        return ['status', 'customer'];
+    }
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['schedule_date', 'street_address', 'city', 'state_province', 'postal_zip_code', 'country_id', 'order_value', 'order_type'], 'required'],
+            [['schedule_date', 'street_address', 'city', 'state_province', 'postal_zip_code', 'country_id', 'order_value', 'order_type', 'latitude', 'longitude'], 'required'],
             [['customer_id', 'country_id', 'status_id'], 'integer'],
             [['schedule_date'], 'safe'],
             [['street_address'], 'string'],
@@ -61,7 +71,7 @@ class Order extends \yii\db\ActiveRecord
             'city' => 'City',
             'state_province' => 'State / Province',
             'postal_zip_code' => 'Postal / Zip Code',
-            'country_id' => 'Country ID',
+            'country_id' => 'Country ID'
         ];
     }
 

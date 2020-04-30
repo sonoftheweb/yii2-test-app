@@ -91,10 +91,14 @@ class SiteController extends Controller
         list($order, $customer, $orders, $countries, $statuses) = [
             new Order,
             new Customer,
-            Order::find()->with('customer')->with('status')->all(),
+            Order::find()->all(),
             Countries::listModel('id', ['country_name']),
             Status::listModel('id', ['name'])
         ];
+
+        /*print('<pre>');
+        print_r($orders);
+        print('</pre>');*/
 
         // normally this would come from a db table, but since I am using
         $orderType = ApplicationHelpers::orderTypes();
@@ -104,7 +108,6 @@ class SiteController extends Controller
             'order' => $order,
             'order_type' => $orderType,
             'countries' => $countries,
-            'orders' => $orders,
             'statuses' => $statuses
         ]);
     }

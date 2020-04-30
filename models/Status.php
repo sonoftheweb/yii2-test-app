@@ -31,8 +31,8 @@ class Status extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'color_code'], 'required'],
-            [['name', 'color_code'], 'string', 'max' => 255],
+            [['name', 'color_code', 'tag'], 'required'],
+            [['name', 'color_code', 'tag'], 'string', 'max' => 255],
         ];
     }
 
@@ -44,6 +44,7 @@ class Status extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'tag' => 'Tag',
             'color_code' => 'Color Code'
         ];
     }

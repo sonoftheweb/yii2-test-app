@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fbc9df7ad8e636f35fedaab0247d16fa",
+    "content-hash": "09658603c542fdc4cf52f41da58bd469",
     "packages": [
         {
             "name": "bower-asset/fontawesome",
@@ -59,21 +59,6 @@
             "license": [
                 "MIT"
             ]
-        },
-        {
-            "name": "bower-asset/leaflet",
-            "version": "v1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Leaflet/Leaflet.git",
-                "reference": "0c81bdf904d864fd12a286e3d1979f47aba17991"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Leaflet/Leaflet/zipball/0c81bdf904d864fd12a286e3d1979f47aba17991",
-                "reference": "0c81bdf904d864fd12a286e3d1979f47aba17991"
-            },
-            "type": "bower-asset"
         },
         {
             "name": "bower-asset/punycode",
@@ -407,6 +392,18 @@
             "type": "npm-asset",
             "license": [
                 "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/leaflet",
+            "version": "1.6.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/leaflet/-/leaflet-1.6.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "BSD-2-Clause"
             ]
         },
         {
