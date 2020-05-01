@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=tracker_app',
+    'dsn' => 'mysql:host=localhost;dbname=db_name',
     'username' => 'root',
-    'password' => 'sonoftheweb',
+    'password' => '',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)
