@@ -17,7 +17,7 @@ class m200428_151335_create_customers_table extends Migration
             'first_name' => $this->string(20)->notNull(),
             'last_name' => $this->string(20)->notNull(),
             'email' => $this->string(100)->unique(),
-            'phone_number' => $this->string(15)
+            'phone_number' => $this->string(20)
         ]);
     }
 

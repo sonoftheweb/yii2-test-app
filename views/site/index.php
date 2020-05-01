@@ -28,36 +28,37 @@ $this->title = 'Cigo Interview';
         ]);
 		}?>
 		<div class="row">
-			<div class="col-lg-6">
+			<div class="col-lg-6 first-col">
 				<div class="card">
 					<div class="card-header">
 						<h3 class="mb-0 float-left">Add an Order</h3>
 						<i class="fas fa-2x fa-address-card float-right"></i>
 					</div>
 					<div class="card-body">
-            <?php $form = ActiveForm::begin(['id' => 'order-form']); ?>
+            <?php $form = ActiveForm::begin(['id' => 'order-form', 'options' => ['autocomplete' => 'off']]); ?>
 						<div class="row">
-							<div class="col"><?= $form->field($customer, 'first_name')->textInput(['maxlength' => true]) ?></div>
-							<div class="col"><?= $form->field($customer, 'last_name')->textInput(['maxlength' => true]) ?></div>
+							<div class="col"><?= $form->field($customer, 'first_name')->textInput(['placeholder' => 'First Name', 'autocomplete' => rand(1, 100)]) ?></div>
+							<div class="col"><?= $form->field($customer, 'last_name')->textInput(['placeholder' => 'Last Name', 'autocomplete' => rand(1, 100)]) ?></div>
 						</div>
 						<div class="row">
-							<div class="col"><?= $form->field($customer, 'email')->textInput(['maxlength' => true]) ?></div>
-							<div class="col"><?= $form->field($customer, 'phone_number')->textInput(['maxlength' => true]) ?></div>
+							<div class="col"><?= $form->field($customer, 'email')->textInput(['placeholder' => 'you@sample.com', 'autocomplete' => rand(1, 100)]) ?></div>
+							<div class="col"><?= $form->field($customer, 'phone_number')->textInput(['placeholder' => '+1 (888) 123-4567', 'autocomplete' => rand(1, 100)]) ?></div>
 						</div>
 						<div class="row">
 							<div class="col"><?= $form->field($order, 'order_type')->dropDownList($order_type) ?></div>
 							<div class="col"><?= $form->field($order, 'order_value', [
 								'inputTemplate' => '<div class="input-group"><div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-dollar-sign"></i></span></div>{input}</div>'
-							]) ?></div>
+							])->textInput(['placeholder' => 'Amount', 'autocomplete' => rand(1, 100)]) ?></div>
 						</div>
 						<div class="row">
 							<div class="col-6"><?= $form->field($order, 'schedule_date', [
                 'inputTemplate' => '<div class="input-group date-picker"><div class="input-group-prepend"><span class="input-group-text"><i class="far fa-calendar-alt"></i></span></div>{input}</div>'
-							]) ?></div>
+							])->textInput(['placeholder' => date('Y-m-d'), 'autocomplete' => rand(1, 100)]) ?></div>
 						</div>
 						<div class="row">
 							<div class="col">
-                <?= $form->field($order, 'street_address')->textInput(['maxlength' => true, 'id' => 'geocode_me', 'autocomplete' => 'off']) ?>
+                <?= $form->field($order, 'street_address')->textInput(['id' => 'geocode_me', 'autocomplete' => rand(1, 100)]) ?>
+                <div class="loading-geo">loading...</div>
 								<?= $form->field($order, 'latitude', [
 								    'template' => '{input}',
 								])->hiddenInput(['id' => 'latitude']); ?>
@@ -67,16 +68,16 @@ $this->title = 'Cigo Interview';
 							</div>
 						</div>
 						<div class="row">
-							<div class="col"><?= $form->field($order, 'city') ?></div>
-							<div class="col"><?= $form->field($order, 'state_province') ?></div>
+							<div class="col"><?= $form->field($order, 'city')->textInput(['autocomplete' => rand(1, 100)]) ?></div>
+							<div class="col"><?= $form->field($order, 'state_province')->textInput(['autocomplete' => rand(1, 100)]) ?></div>
 						</div>
 						<div class="row">
-							<div class="col"><?= $form->field($order, 'postal_zip_code') ?></div>
+							<div class="col"><?= $form->field($order, 'postal_zip_code')->textInput(['autocomplete' => rand(1, 100)]) ?></div>
 							<div class="col"><?= $form->field($order, 'country_id')->dropDownList($countries) ?></div>
 						</div>
 						<button class="btn btn-outline-secondary preview-loc">Preview Location</button>
 						<button type="submit" class="btn btn-success float-right">Submit</button>
-						<button class="btn btn-danger float-right mr-2">Cancel</button>
+						<button class="cancel btn btn-danger float-right mr-2">Cancel</button>
             <?php $form = ActiveForm::end(); ?>
 					</div>
 				</div>
@@ -97,7 +98,7 @@ $this->title = 'Cigo Interview';
             ?>
 					</div>
 
-					<table id="orders-table" class="table">
+					<table id="orders-table" class="table order_list_table">
 						<thead>
 						<tr>
 							<th scope="col">First Name</th>

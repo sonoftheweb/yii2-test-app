@@ -22,13 +22,15 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/bootstrap-datepicker3.min.css',
         'css/site.css',
-        'css/datatables.min.css'
+        'css/datatables.min.css',
+        'css/fixedHeader.bootstrap4.min.css',
     ];
     public $js = [
         'js/bootstrap-datepicker.min.js',
         'js/application.js',
         'js/bootstrap-autocomplete.min.js',
-        'js/datatables.min.js'
+        'js/datatables.min.js',
+        //'js/fixedHeader.bootstrap4.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

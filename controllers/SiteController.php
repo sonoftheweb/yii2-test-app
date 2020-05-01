@@ -76,7 +76,7 @@ class SiteController extends Controller
 
             if ($customer->validate() && $order->validate()) {
                 // create or update customer
-                $customer = Customer::newOrUpdate($customer->attributes);
+                $customer = Customer::getOrNew($customer->attributes); // this ensures that the customer table is not bloated with repetitive data.
 
                 // create new order
                 $order->link('customer', $customer);

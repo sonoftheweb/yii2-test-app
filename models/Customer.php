@@ -33,7 +33,7 @@ class Customer extends \yii\db\ActiveRecord
         return [
             [['first_name', 'last_name', 'email'], 'required'],
             [['first_name', 'last_name'], 'string', 'max' => 10],
-            [['phone_number'], 'string', 'max' => 15],
+            [['phone_number'], 'string', 'max' => 20],
         ];
     }
 
@@ -75,7 +75,7 @@ class Customer extends \yii\db\ActiveRecord
      * @param $data
      * @return Customer|array|bool
      */
-    public static function newOrUpdate($data)
+    public static function getOrNew($data)
     {
         $customer = self::findOne([
             'email' => $data['email']
@@ -83,14 +83,14 @@ class Customer extends \yii\db\ActiveRecord
 
         if (empty($customer)) {
             $customer = new Customer();
+            foreach ($data as $key => $value) {
+                if ($key === 'id')
+                    continue;
+                $customer->$key = $value;
+            }
+            $customer->save();
         }
 
-        foreach ($data as $key => $value) {
-            if ($key === 'id')
-                continue;
-            $customer->$key = $value;
-        }
-        $customer->save();
         return $customer;
     }
 }

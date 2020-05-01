@@ -32,13 +32,26 @@ FontAwesomeAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-
+	<!--All alerts-->
 	<div class="alert-area align-items-center">
 		<div class="alert alert-dismissible fade show" role="alert">
 			<span class="message"></span>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
+		</div>
+	</div>
+
+	<!--Modal used by anything that needs it-->
+	<div id="confirm-action" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-body"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Err.. No.</button>
+					<button type="button" class="btn btn-primary">Do it!</button>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -73,22 +86,20 @@ FontAwesomeAsset::register($this);
     ]);
     NavBar::end();
     ?>
-	<div class="wrapper">
-		<div class="container-fluid py-4">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-		</div>
+	<div class="container py-4">
+      <?= Breadcrumbs::widget([
+          'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+      ]) ?>
+      <?= Alert::widget() ?>
+      <?= $content ?>
 	</div>
 </div>
 
 <footer class="footer">
 	<div class="container">
-		<p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+		<p class="float-left">&copy; My Company <?= date('Y') ?></p>
 
-		<p class="pull-right"><?= Yii::powered() ?></p>
+		<p class="float-right"><?= Yii::powered() ?></p>
 	</div>
 </footer>
 

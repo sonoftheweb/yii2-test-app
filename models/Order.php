@@ -45,7 +45,7 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['schedule_date', 'street_address', 'city', 'state_province', 'postal_zip_code', 'country_id', 'order_value', 'order_type', 'latitude', 'longitude'], 'required'],
+            [['schedule_date', 'street_address', 'city', 'state_province', 'country_id', 'order_value', 'order_type', 'latitude', 'longitude'], 'required'],
             [['customer_id', 'country_id', 'status_id'], 'integer'],
             [['schedule_date'], 'safe'],
             [['street_address'], 'string'],

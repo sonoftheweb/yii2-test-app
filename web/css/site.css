@@ -16,9 +16,10 @@ body {
     padding: 70px 15px 20px;
 }
 
-.wrapper{
-    width: 1400px;
-    margin: 0 auto;
+@media (min-width: 1200px) {
+    .container, .container-sm, .container-md, .container-lg, .container-xl {
+        max-width: 1400px !important;
+    }
 }
 
 .footer {
@@ -145,7 +146,7 @@ a.desc:after {
 }
 
 #map {
-    height:100vh;
+    min-height:1090px;
 }
 
 .alert-area {
@@ -161,11 +162,34 @@ a.desc:after {
     display: none;
 }
 
-#orders-table {
+#orders-table, div.dataTables_scrollHead table.dataTable {
     margin-top: 0px !important;
+    border-top: none !important;
 }
 
 #orders-table_wrapper .row:first-child, #orders-table_wrapper .row:last-child {
     display: none !important;
     height: 0px !important;
+}
+
+form div.required label {
+    font-weight: bold;
+}
+
+form div.required label:after {
+    content: " *";
+    color: red;
+}
+
+.loading-geo {
+    display: none;
+    font-size: small;
+}
+
+.card-header .fas, .card-header .far {
+    color: #00c8ff;
+}
+
+.highlighted {
+    background: rgba(0,200,255,0.53) !important;
 }
